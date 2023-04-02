@@ -23,8 +23,15 @@ app.use(cors());
 
 // Aquí indicamos las rutas a usar
 app.use('/public', express.static('public'));
+app.use('/users', user)
 
-app.use('/clients', user)
+// Ruta al HTML. Útil para desplegar en Vercel
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/index.html");
+});
+
+// Ruta para añadir estilos con CSS
+app.use(express.static(__dirname + '/public'))
 
 // Definimos el puerto desde el dotenv y si no lo hubiera el 4000
 const port = process.env.PORT || 4000;

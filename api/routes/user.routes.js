@@ -89,8 +89,8 @@ router.post("/signin", (req, res, next) => {
     });
 });
 
-// Get Users
-router.route('/').get((req, res) => {
+// Get Users.get
+router.route('/').get(authorize, (req, res, next) => {
     userSchema.find((error, response) => {
         if (error) {
             return next(error)
@@ -114,7 +114,7 @@ router.route('/user-area/:id').get(authorize, (req, res, next) => {
 })
 
 // Update User
-router.route('/update-user/:id').put((req, res, next) => {
+router.route('/update-user/:id').put(authorize, (req, res, next) => {
     userSchema.findByIdAndUpdate(req.params.id, {
         $set: req.body
     }, (error, data) => {
@@ -128,7 +128,7 @@ router.route('/update-user/:id').put((req, res, next) => {
 })
 
 // Delete User
-router.route('/delete-user/:id').delete((req, res, next) => {
+router.route('/delete-user/:id').delete(authorize, (req, res, next) => {
     userSchema.findByIdAndRemove(req.params.id, (error, data) => {
         if (error) {
             return next(error);
