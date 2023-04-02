@@ -33,6 +33,9 @@ app.get("/", (req, res) => {
 // Ruta para añadir estilos con CSS
 app.use(express.static(__dirname + '/public'))
 
+// Añadimos el favicon
+app.use('/favicon.ico', express.static('public/favicon.ico'));
+
 // Definimos el puerto desde el dotenv y si no lo hubiera el 4000
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
