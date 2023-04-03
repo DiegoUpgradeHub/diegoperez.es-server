@@ -9,6 +9,7 @@ const { connect } = require('./api/utils/database/connect.js');
 
 // Express APIs
 const user = require('./api/routes/user.routes.js');
+const message = require('./api/routes/message.routes.js');
 
 //Ejecutamos la funcion que conecta con la db
 connect();
@@ -23,7 +24,8 @@ app.use(cors());
 
 // Aquí indicamos las rutas a usar
 app.use('/public', express.static('public'));
-app.use('/users', user)
+app.use('/users', user);
+app.use('/messages', message);
 
 // Ruta al HTML. Útil para desplegar en Vercel
 app.get("/", (req, res) => {
