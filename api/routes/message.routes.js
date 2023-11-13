@@ -55,10 +55,11 @@ router.post('/create', async (req, res, next) => {
         const newMessage = new messageSchema({
             name: req.body.name,
             email: req.body.email,
+            company: req.body.company,
             message: req.body.message,
             label: req.body.label,
             read: req.body.read,
-        });
+        }, { timestamps: true});
 
         const createdMessage = await newMessage.save();
         return res.status(201).json(createdMessage);
