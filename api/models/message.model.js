@@ -9,6 +9,9 @@ let messageSchema = new Schema({
     email: {
         type: String,
     },
+    company: {
+        type: String,
+    },
     message: {
         type: String
     },
