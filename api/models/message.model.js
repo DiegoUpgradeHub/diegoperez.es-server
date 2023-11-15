@@ -7,10 +7,10 @@ let messageSchema = new Schema({
         type: String
     },
     email: {
-        type: String,
+        type: String
     },
     company: {
-        type: String,
+        type: String
     },
     message: {
         type: String
@@ -20,6 +20,9 @@ let messageSchema = new Schema({
     },
     read: {
         type: Boolean
+    },
+    date: {
+        type: String
     }
 }, {
     collection: 'messages'

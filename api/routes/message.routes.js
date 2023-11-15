@@ -59,7 +59,8 @@ router.post('/create', async (req, res, next) => {
             message: req.body.message,
             label: req.body.label,
             read: req.body.read,
-        }, { timestamps: true});
+            date: req.body.date,
+        });
 
         const createdMessage = await newMessage.save();
         return res.status(201).json(createdMessage);
