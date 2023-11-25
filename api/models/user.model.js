@@ -7,11 +7,23 @@ let userSchema = new Schema({
     name: {
         type: String
     },
+    lastName: {
+        type: String
+    },
+    password: {
+        type: String
+    },
     email: {
         type: String,
         unique: true //En este campo indicamos que solo puede haber un usuario con un e-mail único
     },
-    password: {
+    phone: {
+        type: String
+    },
+    company: {
+        type: String
+    },
+    brand: {
         type: String
     },
     role: {
