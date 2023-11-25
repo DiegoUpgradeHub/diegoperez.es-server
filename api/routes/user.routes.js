@@ -32,9 +32,14 @@ router.post("/register-user",
             bcrypt.hash(req.body.password, 10).then((hash) => {
                 const user = new userSchema({
                     name: req.body.name,
+                    lastName: req.body.lastName,
                     email: req.body.email,
                     password: hash,
-                    role: req.body.role
+                    phone: req.body.phone,
+                    company: req.body.company,
+                    brand: req.body.brand,
+                    role: req.body.role,
+                    startDate: req.body.startDate,
                 });
                 user.save().then((response) => {
                     res.status(201).json({

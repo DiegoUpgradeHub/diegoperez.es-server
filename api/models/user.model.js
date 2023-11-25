@@ -28,6 +28,9 @@ let userSchema = new Schema({
     },
     role: {
         type: String
+    },
+    startDate: {
+        type: String
     }
 }, {
     collection: 'users'
