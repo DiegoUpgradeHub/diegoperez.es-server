@@ -111,9 +111,7 @@ router.route('/user-area/:id').get(authorize, (req, res, next) => {
         if (error) {
             return next(error);
         } else {
-            res.status(200).json({
-                msg: data
-            })
+            res.status(200).json(data)
         }
     })
 })
